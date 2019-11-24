@@ -12,6 +12,8 @@ const HomeScreen = props => {
                         key={user.id}
                         name={user.name}
                         lastMessage={user.lastMessage}
+                        isOnline={user.isOnline}
+                        avatar={user.avatar}
                     />
                 ))}
             </View>
