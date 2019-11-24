@@ -1,14 +1,33 @@
 import React, { useState } from "react";
 import { View, StyleSheet, Text } from "react-native";
+import dummyData from "../assets/dummyData";
+import ChatSelection from "../components/ChatSelection";
 
 const HomeScreen = props => {
     return (
-        <View>
-            <Text> Hello World </Text>
+        <View style={styles.container}>
+            <View style={styles.chatList}>
+                {dummyData.map(user => (
+                    <ChatSelection
+                        key={user.id}
+                        name={user.name}
+                        lastMessage={user.lastMessage}
+                    />
+                ))}
+            </View>
         </View>
     );
 };
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+    container: {
+        justifyContent: "flex-start",
+        alignItems: "flex-start",
+        paddingHorizontal: 20,
+        paddingVertical: 50
+    },
+
+    chatList: {}
+});
 
 export default HomeScreen;
