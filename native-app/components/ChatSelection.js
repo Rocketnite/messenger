@@ -12,10 +12,14 @@ const ChatSelection = props => {
                 <View style={styles.titleContainer}>
                     <Image style={styles.avatar} source={props.avatar} />
                     <Image source={statusImage} />
-                    <Text style={styles.name}>{props.name}</Text>
+                    <Text numberOfLines={1} style={styles.name}>
+                        {props.name}
+                    </Text>
                 </View>
 
-                <Text style={styles.lastMessage}>{props.lastMessage}</Text>
+                <Text numberOfLines={1} style={styles.lastMessage}>
+                    {props.lastMessage}
+                </Text>
             </View>
         </TouchableOpacity>
     );
@@ -23,7 +27,8 @@ const ChatSelection = props => {
 
 const styles = StyleSheet.create({
     container: {
-        margin: 5
+        margin: 5,
+        width: 200
     },
 
     avatar: {
@@ -44,7 +49,8 @@ const styles = StyleSheet.create({
     },
 
     lastMessage: {
-        fontSize: 12
+        fontSize: 12,
+        color: "#505050"
     }
 });
 

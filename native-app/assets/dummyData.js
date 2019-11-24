@@ -3,7 +3,7 @@ export default dummyData = [
         id: 1,
         name: "Dawid Rodak",
         isOnline: true,
-        lastMessage: "Dawid: lubie kawke taka dobra",
+        lastMessage: "Dawid: lubie kawke taka dobra i aromatyczna",
         avatar: require("../assets/avatar1.png")
     },
     {
