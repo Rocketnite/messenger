@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import { View, StyleSheet, Text } from "react-native";
-import dummyData from "../assets/dummyData";
 import ChatSelection from "../components/ChatSelection";
 
 const HomeScreen = props => {
     return (
         <View style={styles.container}>
             <View style={styles.chatList}>
-                {dummyData.map(user => (
+                {props.data.map(user => (
                     <ChatSelection
                         key={user.id}
                         name={user.name}
