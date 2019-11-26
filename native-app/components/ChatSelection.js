@@ -10,7 +10,12 @@ const ChatSelection = props => {
                 <Image style={styles.avatar} source={props.avatar} />
                 <View style={styles.description}>
                     <View style={styles.nameContainer}>
-                        {statusImage && <Image source={statusImage} />}
+                        {statusImage && (
+                            <Image
+                                style={styles.statusImage}
+                                source={statusImage}
+                            />
+                        )}
                         <Text numberOfLines={1} style={styles.name}>
                             {props.name}
                         </Text>
@@ -46,7 +51,7 @@ const styles = StyleSheet.create({
     },
 
     lastMessageContainer: {
-        marginLeft: 3,
+        marginLeft: 5,
         alignItems: "flex-start"
     },
 
@@ -55,6 +60,10 @@ const styles = StyleSheet.create({
         height: 50,
         borderRadius: 25,
         marginRight: 5
+    },
+
+    statusImage: {
+        marginLeft: 3
     },
 
     name: {
