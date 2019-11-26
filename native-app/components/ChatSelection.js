@@ -2,24 +2,25 @@ import React, { useState } from "react";
 import { View, StyleSheet, TouchableOpacity, Text, Image } from "react-native";
 
 const ChatSelection = props => {
-    const statusImage = props.isOnline
-        ? require("../assets/online.png")
-        : require("../assets/offline.png");
+    const statusImage = props.isOnline && require("../assets/online.png");
 
     return (
-        <TouchableOpacity style={styles.container}>
-            <View>
-                <View style={styles.titleContainer}>
-                    <Image style={styles.avatar} source={props.avatar} />
-                    <Image source={statusImage} />
-                    <Text numberOfLines={1} style={styles.name}>
-                        {props.name}
-                    </Text>
+        <TouchableOpacity>
+            <View style={styles.container}>
+                <Image style={styles.avatar} source={props.avatar} />
+                <View style={styles.description}>
+                    <View style={styles.nameContainer}>
+                        {statusImage && <Image source={statusImage} />}
+                        <Text numberOfLines={1} style={styles.name}>
+                            {props.name}
+                        </Text>
+                    </View>
+                    <View style={styles.lastMessageContainer}>
+                        <Text numberOfLines={2} style={styles.lastMessage}>
+                            {props.lastMessage}
+                        </Text>
+                    </View>
                 </View>
-
-                <Text numberOfLines={1} style={styles.lastMessage}>
-                    {props.lastMessage}
-                </Text>
             </View>
         </TouchableOpacity>
     );
@@ -28,19 +29,29 @@ const ChatSelection = props => {
 const styles = StyleSheet.create({
     container: {
         margin: 5,
-        width: 200
+        width: 200,
+        flexDirection: "row"
+    },
+
+    description: {
+        marginHorizontal: 5
+    },
+
+    nameContainer: {
+        flexDirection: "row",
+        alignItems: "center"
+    },
+
+    lastMessageContainer: {
+        alignItems: "flex-start",
+        width: 150
     },
 
     avatar: {
-        width: 30,
-        height: 30,
-        borderRadius: 15,
+        width: 50,
+        height: 50,
+        borderRadius: 25,
         marginRight: 5
-    },
-
-    titleContainer: {
-        flexDirection: "row",
-        alignItems: "center"
     },
 
     name: {
