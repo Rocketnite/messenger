@@ -22,10 +22,8 @@ const HomeScreen = props => {
 
 const styles = StyleSheet.create({
     container: {
-        justifyContent: "flex-start",
-        alignItems: "flex-start",
-        paddingHorizontal: 20,
-        paddingVertical: 50
+        flex: 1,
+        marginTop: 30
     },
 
     chatList: {}

@@ -28,13 +28,16 @@ const ChatSelection = props => {
 
 const styles = StyleSheet.create({
     container: {
-        margin: 5,
-        width: 200,
-        flexDirection: "row"
+        marginHorizontal: 20,
+        marginVertical: 10,
+        flexDirection: "row",
+        alignItems: "center"
     },
 
     description: {
-        marginHorizontal: 5
+        width: "80%",
+        marginLeft: 7,
+        justifyContent: "space-around"
     },
 
     nameContainer: {
@@ -43,8 +46,8 @@ const styles = StyleSheet.create({
     },
 
     lastMessageContainer: {
-        alignItems: "flex-start",
-        width: 150
+        marginLeft: 3,
+        alignItems: "flex-start"
     },
 
     avatar: {
@@ -56,7 +59,7 @@ const styles = StyleSheet.create({
 
     name: {
         fontSize: 18,
-        marginHorizontal: 3
+        marginLeft: 5
     },
 
     lastMessage: {
