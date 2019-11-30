@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { View, StyleSheet, TouchableOpacity, Text, Image } from "react-native";
 
-const ChatSelection = props => {
+const TextChannel = props => {
     const statusImage = props.isOnline && require("../assets/online.png");
 
     return (
@@ -77,4 +77,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default ChatSelection;
+export default TextChannel;

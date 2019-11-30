@@ -1,25 +1,26 @@
 import React, { useState } from "react";
 import { View, StyleSheet, ScrollView, Text } from "react-native";
-import ChatSelection from "../components/ChatSelection";
-import { MaterialIcons } from "@expo/vector-icons";
+import TextChannel from "../components/TextChannel";
+import SearchBar from "../components/SearchBar";
+import * as Animated from "react-native-animatable";
 
 const HomeScreen = props => {
     return (
         <View style={styles.container}>
             <ScrollView style={styles.chatList}>
-                <View style={styles.searchContainer}>
-                    <MaterialIcons name="search" size={28} />
-                </View>
+                <SearchBar />
                 <Text style={styles.title}> Messages </Text>
-                {props.data.map(user => (
-                    <ChatSelection
-                        key={user.id}
-                        name={user.name}
-                        lastMessage={user.lastMessage}
-                        isOnline={user.isOnline}
-                        avatar={user.avatar}
-                    />
-                ))}
+                <Animated.View animation="slideInUp" duration={1000}>
+                    {props.data.map(user => (
+                        <TextChannel
+                            key={user.id}
+                            name={user.name}
+                            lastMessage={user.lastMessage}
+                            isOnline={user.isOnline}
+                            avatar={user.avatar}
+                        />
+                    ))}
+                </Animated.View>
             </ScrollView>
         </View>
     );
