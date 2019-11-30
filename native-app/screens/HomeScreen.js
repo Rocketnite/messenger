@@ -3,11 +3,12 @@ import { View, StyleSheet, ScrollView, Text } from "react-native";
 import TextChannel from "../components/TextChannel";
 import SearchBar from "../components/SearchBar";
 import * as Animated from "react-native-animatable";
+import NavigationTabs from "../components/NavigationTabs";
 
 const HomeScreen = props => {
     return (
         <View style={styles.container}>
-            <ScrollView style={styles.chatList}>
+            <ScrollView showsVerticalScrollIndicator={false}>
                 <SearchBar />
                 <Text style={styles.title}> Messages </Text>
                 <Animated.View animation="slideInUp" duration={1000}>
@@ -22,6 +23,7 @@ const HomeScreen = props => {
                     ))}
                 </Animated.View>
             </ScrollView>
+            <NavigationTabs />
         </View>
     );
 };
@@ -29,7 +31,7 @@ const HomeScreen = props => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        marginVertical: 40
+        marginTop: 40
     },
 
     searchContainer: {
@@ -43,9 +45,7 @@ const styles = StyleSheet.create({
         marginBottom: 11,
         fontWeight: "500",
         color: "#2b385a"
-    },
-
-    chatList: {}
+    }
 });
 
 export default HomeScreen;
