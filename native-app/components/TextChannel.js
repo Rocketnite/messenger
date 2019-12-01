@@ -19,6 +19,11 @@ const TextChannel = props => {
                         <Text numberOfLines={1} style={styles.name}>
                             {props.name}
                         </Text>
+                        <View style={styles.whenLastMessageContainer}>
+                            <Text style={styles.whenLastMessage}>
+                                {props.whenLastMessage}
+                            </Text>
+                        </View>
                     </View>
                     <View style={styles.lastMessageContainer}>
                         <Text numberOfLines={2} style={styles.lastMessage}>
@@ -41,13 +46,14 @@ const styles = StyleSheet.create({
 
     description: {
         width: "80%",
-        marginLeft: 7,
-        justifyContent: "space-around"
+        marginLeft: 7
     },
 
     nameContainer: {
         flexDirection: "row",
-        alignItems: "center"
+        alignItems: "center",
+        marginBottom: 5,
+        width: "100%"
     },
 
     lastMessageContainer: {
@@ -73,7 +79,21 @@ const styles = StyleSheet.create({
 
     lastMessage: {
         fontSize: 12,
+        color: "#505050",
+        textAlign: "auto",
+        width: "85%"
+    },
+
+    whenLastMessage: {
+        fontSize: 12,
+        marginTop: 3,
         color: "#505050"
+    },
+
+    whenLastMessageContainer: {
+        flexDirection: "row",
+        justifyContent: "flex-end",
+        flexGrow: 1
     }
 });
 

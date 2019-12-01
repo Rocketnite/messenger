@@ -19,6 +19,7 @@ const HomeScreen = props => {
                             lastMessage={user.lastMessage}
                             isOnline={user.isOnline}
                             avatar={user.avatar}
+                            whenLastMessage={user.whenLastMessage}
                         />
                     ))}
                 </Animated.View>
