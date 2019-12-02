@@ -7,15 +7,17 @@ const TextChannel = props => {
     return (
         <TouchableOpacity>
             <View style={styles.container}>
-                <Image style={styles.avatar} source={props.avatar} />
+                <View style={styles.avatarContainer}>
+                    <Image style={styles.avatar} source={props.avatar} />
+                    {statusImage && (
+                        <Image
+                            style={styles.statusImage}
+                            source={statusImage}
+                        />
+                    )}
+                </View>
                 <View style={styles.description}>
                     <View style={styles.nameContainer}>
-                        {statusImage && (
-                            <Image
-                                style={styles.statusImage}
-                                source={statusImage}
-                            />
-                        )}
                         <Text numberOfLines={1} style={styles.name}>
                             {props.name}
                         </Text>
@@ -46,7 +48,7 @@ const styles = StyleSheet.create({
 
     description: {
         width: "80%",
-        marginLeft: 7
+        marginLeft: 10
     },
 
     nameContainer: {
@@ -57,24 +59,33 @@ const styles = StyleSheet.create({
     },
 
     lastMessageContainer: {
-        marginLeft: 5,
         alignItems: "flex-start"
     },
 
     avatar: {
         width: 50,
         height: 50,
+        borderRadius: 25
+    },
+
+    avatarContainer: {
+        width: 50,
+        height: 50,
         borderRadius: 25,
-        marginRight: 5
+        marginRight: 5,
+        position: "relative"
     },
 
     statusImage: {
-        marginLeft: 3
+        width: 15,
+        height: 15,
+        marginLeft: 35,
+        marginTop: 35,
+        position: "absolute"
     },
 
     name: {
-        fontSize: 18,
-        marginLeft: 5
+        fontSize: 18
     },
 
     lastMessage: {
