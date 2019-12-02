@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, StyleSheet } from "react-native";
+import { View, StyleSheet, Platform } from "react-native";
 import TabButton from "./TabButton";
 
 const NavigationTabs = props => {
@@ -18,7 +18,8 @@ const styles = StyleSheet.create({
         alignItems: "center",
         justifyContent: "space-around",
         height: 50,
-        padding: 5
+        padding: 5,
+        marginBottom: Platform.OS === 'ios' ? 10 : 0
     }
 });
 
