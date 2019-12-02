@@ -44,7 +44,7 @@ const styles = StyleSheet.create({
         fontSize: 32,
         marginHorizontal: 11,
         marginBottom: 11,
-        fontWeight: "500",
+        fontFamily: "rubik-bold",
         color: "#2b385a"
     }
 });

@@ -85,11 +85,14 @@ const styles = StyleSheet.create({
     },
 
     name: {
-        fontSize: 18
+        fontSize: 18,
+        fontFamily: "rubik-regular"
     },
 
     lastMessage: {
         fontSize: 12,
+        marginLeft: 1,
+        fontFamily: "rubik-regular",
         color: "#505050",
         textAlign: "auto",
         width: "85%"
@@ -97,6 +100,7 @@ const styles = StyleSheet.create({
 
     whenLastMessage: {
         fontSize: 12,
+        fontFamily: "rubik-regular",
         marginTop: 3,
         color: "#505050"
     },
