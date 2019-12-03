@@ -10,10 +10,12 @@ const TextChannel = props => {
                 <View style={styles.avatarContainer}>
                     <Image style={styles.avatar} source={props.avatar} />
                     {statusImage && (
-                        <Image
-                            style={styles.statusImage}
-                            source={statusImage}
-                        />
+                        <View style={styles.statusImageContainer}>
+                            <Image
+                                style={styles.statusImage}
+                                source={statusImage}
+                            />
+                        </View>
                     )}
                 </View>
                 <View style={styles.description}>
@@ -71,7 +73,6 @@ const styles = StyleSheet.create({
     avatarContainer: {
         width: 50,
         height: 50,
-        borderRadius: 25,
         marginRight: 5,
         position: "relative"
     },
@@ -81,6 +82,10 @@ const styles = StyleSheet.create({
         height: 15,
         marginLeft: 35,
         marginTop: 35,
+        position: "absolute"
+    },
+
+    statusImageContainer: {
         position: "absolute"
     },
 
