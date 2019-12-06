@@ -2,113 +2,113 @@ import React, { useState } from "react";
 import { View, StyleSheet, TouchableOpacity, Text, Image } from "react-native";
 
 const TextChannel = props => {
-    const statusImage = props.isOnline && require("../assets/online.png");
+  const statusImage = props.isOnline && require("../assets/online.png");
 
-    return (
-        <TouchableOpacity>
-            <View style={styles.container}>
-                <View style={styles.avatarContainer}>
-                    <Image style={styles.avatar} source={props.avatar} />
-                    <Text style={styles.statusIndicator} />
-                </View>
-                <View style={styles.description}>
-                    <View style={styles.nameContainer}>
-                        <Text numberOfLines={1} style={styles.name}>
-                            {props.name}
-                        </Text>
-                        <View style={styles.whenLastMessageContainer}>
-                            <Text style={styles.whenLastMessage}>
-                                {props.whenLastMessage}
-                            </Text>
-                        </View>
-                    </View>
-                    <View style={styles.lastMessageContainer}>
-                        <Text numberOfLines={2} style={styles.lastMessage}>
-                            {props.lastMessage}
-                        </Text>
-                    </View>
-                </View>
+  return (
+    <TouchableOpacity>
+      <View style={styles.container}>
+        <View style={styles.avatarContainer}>
+          <Image style={styles.avatar} source={props.avatar} />
+          <Text style={styles.statusIndicator} />
+        </View>
+        <View style={styles.description}>
+          <View style={styles.nameContainer}>
+            <Text numberOfLines={1} style={styles.name}>
+              {props.name}
+            </Text>
+            <View style={styles.whenLastMessageContainer}>
+              <Text style={styles.whenLastMessage}>
+                {props.whenLastMessage}
+              </Text>
             </View>
-        </TouchableOpacity>
-    );
+          </View>
+          <View style={styles.lastMessageContainer}>
+            <Text numberOfLines={2} style={styles.lastMessage}>
+              {props.lastMessage}
+            </Text>
+          </View>
+        </View>
+      </View>
+    </TouchableOpacity>
+  );
 };
 
 const styles = StyleSheet.create({
-    container: {
-        marginHorizontal: 20,
-        marginVertical: 10,
-        flexDirection: "row",
-        alignItems: "center"
-    },
+  container: {
+    marginHorizontal: 20,
+    marginVertical: 10,
+    flexDirection: "row",
+    alignItems: "center"
+  },
 
-    description: {
-        width: "80%",
-        marginLeft: 10
-    },
+  description: {
+    width: "80%",
+    marginLeft: 10
+  },
 
-    nameContainer: {
-        flexDirection: "row",
-        alignItems: "center",
-        marginBottom: 5,
-        width: "100%"
-    },
+  nameContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginBottom: 5,
+    width: "100%"
+  },
 
-    lastMessageContainer: {
-        alignItems: "flex-start"
-    },
+  lastMessageContainer: {
+    alignItems: "flex-start"
+  },
 
-    avatar: {
-        width: 50,
-        height: 50,
-        borderRadius: 25
-    },
+  avatar: {
+    width: 50,
+    height: 50,
+    borderRadius: 25
+  },
 
-    avatarContainer: {
-        width: 50,
-        height: 50,
-        marginRight: 5,
-        position: "relative"
-    },
+  avatarContainer: {
+    width: 50,
+    height: 50,
+    marginRight: 5,
+    position: "relative"
+  },
 
-    statusIndicator: {
-        width: 15,
-        height: 15,
-        bottom: 0,
-        right: 0,
-        position: "absolute",
-        backgroundColor: "#2ecc71",
-        borderRadius: 15/2,
-        borderWidth: 3,
-        borderColor: "#ffffff",
-        overflow: 'hidden'
-    },
+  statusIndicator: {
+    width: 15,
+    height: 15,
+    bottom: 0,
+    right: 0,
+    position: "absolute",
+    backgroundColor: "#2ecc71",
+    borderRadius: 15 / 2,
+    borderWidth: 3,
+    borderColor: "#ffffff",
+    overflow: "hidden"
+  },
 
-    name: {
-        fontSize: 18,
-        fontFamily: "rubik-regular"
-    },
+  name: {
+    fontSize: 18,
+    fontFamily: "rubik-regular"
+  },
 
-    lastMessage: {
-        fontSize: 12,
-        marginLeft: 1,
-        fontFamily: "rubik-regular",
-        color: "#505050",
-        textAlign: "auto",
-        width: "85%"
-    },
+  lastMessage: {
+    fontSize: 12,
+    marginLeft: 1,
+    fontFamily: "rubik-regular",
+    color: "#505050",
+    textAlign: "auto",
+    width: "85%"
+  },
 
-    whenLastMessage: {
-        fontSize: 12,
-        fontFamily: "rubik-regular",
-        marginTop: 3,
-        color: "#505050"
-    },
+  whenLastMessage: {
+    fontSize: 12,
+    fontFamily: "rubik-regular",
+    marginTop: 3,
+    color: "#505050"
+  },
 
-    whenLastMessageContainer: {
-        flexDirection: "row",
-        justifyContent: "flex-end",
-        flexGrow: 1
-    }
+  whenLastMessageContainer: {
+    flexDirection: "row",
+    justifyContent: "flex-end",
+    flexGrow: 1
+  }
 });
 
 export default TextChannel;
