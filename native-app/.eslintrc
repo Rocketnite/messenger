@@ -9,7 +9,7 @@
     "eslint-plugin-react"
   ],
   "rules": {
-    "import/no-extraneous-dependencies": ["error", { "devDependencies": true }],
+    "import/no-extraneous-dependencies": "off",
     "import/prefer-default-export": "off",
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "react/prefer-stateless-function": [0],
@@ -17,6 +17,8 @@
     "react/sort-comp": [0],
     "react/destructuring-assignment": [0],
     "react/forbid-prop-types": [0],
+    "no-unused-vars": 0,
+    "no-console": 0,
     "react/no-unescaped-entities": ["error", { "forbid": [">", "}"] }],
     "quotes": [
       "error",
@@ -25,19 +27,9 @@
     ],
     "jsx-quotes": ["error", "prefer-double"],
     "camelcase": "off",
+    "global-require": 0,
     "no-use-before-define": "off",
-    "semi": ["error", "always"],
-    "prettier/prettier": [
-      "error",
-      {
-        "trailingComma": "none",
-        "singleQuote": true,
-        "jsxSingleQuote": false,
-        "printWidth": 100,
-        "semi": true,
-        "jsxBracketSameLine": true
-      }
-    ]
+    "semi": ["error", "always"]
   },
   "env": {
     "jest": true,

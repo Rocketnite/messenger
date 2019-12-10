@@ -1,9 +1,10 @@
 import React from 'react';
 import { View, TouchableOpacity, Dimensions } from 'react-native';
 import { Feather } from '@expo/vector-icons';
-import { bigScreenHeight } from '../constants/dims';
+import PropTypes from 'prop-types';
+import dims from '../constants/dims';
 
-const isBigScreen = Dimensions.get('window').height > bigScreenHeight;
+const isBigScreen = Dimensions.get('window').height > dims.bigScreenHeight;
 
 const TabButton = props => {
   return (
@@ -13,6 +14,10 @@ const TabButton = props => {
       </View>
     </TouchableOpacity>
   );
+};
+
+TabButton.propTypes = {
+  name: PropTypes.string.isRequired
 };
 
 export default TabButton;

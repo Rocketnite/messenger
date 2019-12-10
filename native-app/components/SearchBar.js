@@ -2,9 +2,9 @@ import React from 'react';
 import { StyleSheet, TouchableOpacity, Dimensions } from 'react-native';
 import { Feather } from '@expo/vector-icons';
 import { View } from 'react-native-animatable';
-import { bigScreenHeight } from '../constants/dims';
+import dims from '../constants/dims';
 
-const isBigScreen = Dimensions.get('window').height > bigScreenHeight;
+const isBigScreen = Dimensions.get('window').height > dims.bigScreenHeight;
 
 const SearchBar = () => {
   const iconSize = isBigScreen ? 44 : 22;

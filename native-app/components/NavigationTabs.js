@@ -1,9 +1,9 @@
 import React from 'react';
 import { View, StyleSheet, Platform, Dimensions } from 'react-native';
 import TabButton from './TabButton';
-import { bigScreenHeight } from '../constants/dims';
+import dims from '../constants/dims';
 
-const isBigScreen = Dimensions.get('window').height > bigScreenHeight;
+const isBigScreen = Dimensions.get('window').height > dims.bigScreenHeight;
 
 const NavigationTabs = () => {
   return (

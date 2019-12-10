@@ -1,29 +1,37 @@
 import React from 'react';
-import { View, StyleSheet, TouchableOpacity, Text, Image, Dimensions } from 'react-native';
-import { bigScreenHeight } from '../constants/dims';
+import {
+  View,
+  StyleSheet,
+  TouchableOpacity,
+  Text,
+  Image,
+  Dimensions
+} from 'react-native';
+import PropTypes from 'prop-types';
+import dims from '../constants/dims';
 
-const isBigScreen = Dimensions.get('window').height > bigScreenHeight;
+const isBigScreen = Dimensions.get('window').height > dims.bigScreenHeight;
 
-const TextChannel = props => {
+const TextChannel = ({ user }) => {
   return (
     <TouchableOpacity>
       <View style={styles.container}>
         <View style={styles.avatarContainer}>
-          <Image style={styles.avatar} source={props.avatar} />
+          <Image style={styles.avatar} source={user.avatar} />
           <Text style={styles.statusIndicator} />
         </View>
         <View style={styles.description}>
           <View style={styles.nameContainer}>
             <Text numberOfLines={1} style={styles.name}>
-              {props.name}
+              {user.name}
             </Text>
             <View style={styles.whenLastMessageContainer}>
-              <Text style={styles.whenLastMessage}>{props.whenLastMessage}</Text>
+              <Text style={styles.whenLastMessage}>{user.whenLastMessage}</Text>
             </View>
           </View>
           <View style={styles.lastMessageContainer}>
             <Text numberOfLines={2} style={styles.lastMessage}>
-              {props.lastMessage}
+              {user.lastMessage}
             </Text>
           </View>
         </View>
@@ -110,5 +118,9 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10
   }
 });
+
+TextChannel.propTypes = {
+  user: PropTypes.object.isRequired
+};
 
 export default TextChannel;

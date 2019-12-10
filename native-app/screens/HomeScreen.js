@@ -1,29 +1,23 @@
 import React from 'react';
 import { View, StyleSheet, ScrollView, Text, Dimensions } from 'react-native';
 import * as Animated from 'react-native-animatable';
+import PropTypes from 'prop-types';
 import TextChannel from '../components/TextChannel';
 import SearchBar from '../components/SearchBar';
 import NavigationTabs from '../components/NavigationTabs';
-import { bigScreenHeight } from '../constants/dims';
+import dims from '../constants/dims';
 
-const isBigScreen = Dimensions.get('window').height > bigScreenHeight;
+const isBigScreen = Dimensions.get('window').height > dims.bigScreenHeight;
 
-const HomeScreen = props => {
+const HomeScreen = ({ data }) => {
   return (
     <View style={styles.container}>
       <ScrollView showsVerticalScrollIndicator={false}>
         <SearchBar />
         <Text style={styles.title}> Messages </Text>
         <Animated.View animation="slideInUp" duration={1000}>
-          {props.data.map(user => (
-            <TextChannel
-              key={user.id}
-              name={user.name}
-              lastMessage={user.lastMessage}
-              isOnline={user.isOnline}
-              avatar={user.avatar}
-              whenLastMessage={user.whenLastMessage}
-            />
+          {data.map(user => (
+            <TextChannel key={user.id} user={user} />
           ))}
         </Animated.View>
       </ScrollView>
@@ -52,5 +46,9 @@ const styles = StyleSheet.create({
     color: '#2b385a'
   }
 });
+
+HomeScreen.propTypes = {
+  data: PropTypes.array.isRequired
+};
 
 export default HomeScreen;
