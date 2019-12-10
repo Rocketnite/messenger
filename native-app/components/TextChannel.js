@@ -1,9 +1,10 @@
-import React, { useState } from "react";
-import { View, StyleSheet, TouchableOpacity, Text, Image } from "react-native";
+import React from 'react';
+import { View, StyleSheet, TouchableOpacity, Text, Image, Dimensions } from 'react-native';
+import { bigScreenHeight } from '../constants/dims';
+
+const isBigScreen = Dimensions.get('window').height > bigScreenHeight;
 
 const TextChannel = props => {
-  const statusImage = props.isOnline && require("../assets/online.png");
-
   return (
     <TouchableOpacity>
       <View style={styles.container}>
@@ -17,9 +18,7 @@ const TextChannel = props => {
               {props.name}
             </Text>
             <View style={styles.whenLastMessageContainer}>
-              <Text style={styles.whenLastMessage}>
-                {props.whenLastMessage}
-              </Text>
+              <Text style={styles.whenLastMessage}>{props.whenLastMessage}</Text>
             </View>
           </View>
           <View style={styles.lastMessageContainer}>
@@ -37,77 +36,78 @@ const styles = StyleSheet.create({
   container: {
     marginHorizontal: 20,
     marginVertical: 10,
-    flexDirection: "row",
-    alignItems: "center"
+    flexDirection: 'row',
+    alignItems: 'center'
   },
 
   description: {
-    width: "80%",
-    marginLeft: 10
+    width: '80%',
+    marginLeft: isBigScreen ? 20 : 10
   },
 
   nameContainer: {
-    flexDirection: "row",
-    alignItems: "center",
+    flexDirection: 'row',
+    alignItems: 'center',
     marginBottom: 5,
-    width: "100%"
+    width: '100%'
   },
 
   lastMessageContainer: {
-    alignItems: "flex-start"
+    alignItems: 'flex-start'
   },
 
   avatar: {
-    width: 50,
-    height: 50,
-    borderRadius: 25
+    width: isBigScreen ? 100 : 50,
+    height: isBigScreen ? 100 : 50,
+    borderRadius: (isBigScreen ? 100 : 50) / 2
   },
 
   avatarContainer: {
-    width: 50,
-    height: 50,
+    width: isBigScreen ? 100 : 50,
+    height: isBigScreen ? 100 : 50,
     marginRight: 5,
-    position: "relative"
+    position: 'relative'
   },
 
   statusIndicator: {
-    width: 15,
-    height: 15,
+    width: isBigScreen ? 30 : 15,
+    height: isBigScreen ? 30 : 15,
     bottom: 0,
     right: 0,
-    position: "absolute",
-    backgroundColor: "#2ecc71",
-    borderRadius: 15 / 2,
+    position: 'absolute',
+    backgroundColor: '#2ecc71',
+    borderRadius: (isBigScreen ? 30 : 15) / 2,
     borderWidth: 3,
-    borderColor: "#ffffff",
-    overflow: "hidden"
+    borderColor: '#ffffff',
+    overflow: 'hidden'
   },
 
   name: {
-    fontSize: 18,
-    fontFamily: "rubik-regular"
+    fontSize: isBigScreen ? 36 : 18,
+    fontFamily: 'rubik-regular'
   },
 
   lastMessage: {
-    fontSize: 12,
+    fontSize: isBigScreen ? 24 : 12,
     marginLeft: 1,
-    fontFamily: "rubik-regular",
-    color: "#505050",
-    textAlign: "auto",
-    width: "85%"
+    fontFamily: 'rubik-regular',
+    color: '#505050',
+    textAlign: 'auto',
+    width: '85%'
   },
 
   whenLastMessage: {
-    fontSize: 12,
-    fontFamily: "rubik-regular",
+    fontSize: isBigScreen ? 24 : 12,
+    fontFamily: 'rubik-regular',
     marginTop: 3,
-    color: "#505050"
+    color: '#505050'
   },
 
   whenLastMessageContainer: {
-    flexDirection: "row",
-    justifyContent: "flex-end",
-    flexGrow: 1
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    flexGrow: 1,
+    paddingHorizontal: 10
   }
 });
 

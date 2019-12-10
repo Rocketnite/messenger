@@ -1,13 +1,17 @@
-import React, { useState } from "react";
-import { StyleSheet, TextInput, TouchableOpacity } from "react-native";
-import { Feather } from "@expo/vector-icons";
-import { View } from "react-native-animatable";
+import React from 'react';
+import { StyleSheet, TouchableOpacity, Dimensions } from 'react-native';
+import { Feather } from '@expo/vector-icons';
+import { View } from 'react-native-animatable';
+import { bigScreenHeight } from '../constants/dims';
 
-const SearchBar = props => {
+const isBigScreen = Dimensions.get('window').height > bigScreenHeight;
+
+const SearchBar = () => {
+  const iconSize = isBigScreen ? 44 : 22;
   return (
     <View animation="slideInRight" duration={1000} style={styles.container}>
       <TouchableOpacity>
-        <Feather name="search" size={22} />
+        <Feather name="search" size={iconSize} />
       </TouchableOpacity>
     </View>
   );
@@ -15,9 +19,9 @@ const SearchBar = props => {
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: "row",
-    justifyContent: "flex-end",
-    marginRight: 20
+    flexDirection: 'row',
+    justifyContent: 'flex-end',
+    marginRight: isBigScreen ? 60 : 15
   }
 });
 

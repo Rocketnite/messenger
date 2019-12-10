@@ -1,8 +1,11 @@
-import React, { useState } from "react";
-import { View, StyleSheet, Platform } from "react-native";
-import TabButton from "./TabButton";
+import React from 'react';
+import { View, StyleSheet, Platform, Dimensions } from 'react-native';
+import TabButton from './TabButton';
+import { bigScreenHeight } from '../constants/dims';
 
-const NavigationTabs = props => {
+const isBigScreen = Dimensions.get('window').height > bigScreenHeight;
+
+const NavigationTabs = () => {
   return (
     <View style={styles.container}>
       <TabButton name="message-square" />
@@ -14,12 +17,13 @@ const NavigationTabs = props => {
 
 const styles = StyleSheet.create({
   container: {
-    flexDirection: "row",
-    alignItems: "center",
-    justifyContent: "space-around",
-    height: 50,
-    padding: 5,
-    marginBottom: Platform.OS === "ios" ? 10 : 0
+    width: '100%',
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-around',
+    height: isBigScreen ? 100 : 50,
+    padding: isBigScreen ? 10 : 5,
+    marginBottom: Platform.OS === 'ios' ? 10 : 0
   }
 });
 
