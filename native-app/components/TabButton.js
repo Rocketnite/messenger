@@ -6,11 +6,11 @@ import dims from '../constants/dims';
 
 const isBigScreen = Dimensions.get('window').height > dims.bigScreenHeight;
 
-const TabButton = props => {
+const TabButton = ({ name }) => {
   return (
     <TouchableOpacity>
       <View>
-        <Feather name={props.name} size={isBigScreen ? 44 : 22} />
+        <Feather name={name} size={isBigScreen ? 44 : 22} />
       </View>
     </TouchableOpacity>
   );
