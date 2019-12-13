@@ -9,7 +9,7 @@ import dummyData from './assets/dummyData';
 
 export default function App() {
   const [currentScreen, setCurrentScreen] = useState('home');
-  const [data, setData] = useState(dummyData);
+  const [data] = useState(dummyData);
   const [isReady, setIsReady] = useState(false);
 
   const handleOpenChatScreen = () => {

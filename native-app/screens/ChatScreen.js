@@ -1,11 +1,12 @@
 import React from 'react';
-import { Text, View, StyleSheet, BackHandler } from 'react-native';
+import { Text, View, StyleSheet, Button } from 'react-native';
 import PropTypes from 'prop-types';
 
 const ChatScreen = ({ handleOpenHomeScreen }) => {
   return (
     <View style={styles.container}>
       <Text> This is chat view version pre-alpha </Text>
+      <Button onPress={handleOpenHomeScreen} title="Back to home screen" />
     </View>
   );
 };
