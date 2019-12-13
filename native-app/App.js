@@ -4,12 +4,21 @@ import { AppLoading } from 'expo';
 import * as Fonts from 'expo-font';
 
 import HomeScreen from './screens/HomeScreen';
+import ChatScreen from './screens/ChatScreen';
 import dummyData from './assets/dummyData';
 
 export default function App() {
   const [currentScreen, setCurrentScreen] = useState('home');
   const [data, setData] = useState(dummyData);
   const [isReady, setIsReady] = useState(false);
+
+  const handleOpenChatScreen = () => {
+    setCurrentScreen('chat');
+  };
+
+  const handleOpenHomeScreen = () => {
+    setCurrentScreen('home');
+  };
 
   if (!isReady) {
     console.log('Ready');
@@ -30,7 +39,13 @@ export default function App() {
     );
   }
 
-  const context = <HomeScreen data={data} />;
+  let context = (
+    <HomeScreen data={data} handleOpenChatScreen={handleOpenChatScreen} />
+  );
+
+  if (currentScreen === 'chat') {
+    context = <ChatScreen handleOpenHomeScreen={handleOpenHomeScreen} />;
+  }
 
   return <View style={styles.container}>{context}</View>;
 }
