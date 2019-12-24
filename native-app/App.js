@@ -8,17 +8,8 @@ import ChatScreen from './screens/ChatScreen';
 import dummyData from './assets/dummyData';
 
 export default function App() {
-  const [currentScreen, setCurrentScreen] = useState('home');
   const [data] = useState(dummyData);
   const [isReady, setIsReady] = useState(false);
-
-  const handleOpenChatScreen = () => {
-    setCurrentScreen('chat');
-  };
-
-  const handleOpenHomeScreen = () => {
-    setCurrentScreen('home');
-  };
 
   if (!isReady) {
     console.log('Ready');
@@ -39,13 +30,7 @@ export default function App() {
     );
   }
 
-  let context = (
-    <HomeScreen data={data} handleOpenChatScreen={handleOpenChatScreen} />
-  );
-
-  if (currentScreen === 'chat') {
-    context = <ChatScreen handleOpenHomeScreen={handleOpenHomeScreen} />;
-  }
+  const context = <HomeScreen data={data} />;
 
   return <View style={styles.container}>{context}</View>;
 }

@@ -9,7 +9,7 @@ import dims from '../constants/dims';
 
 const isBigScreen = Dimensions.get('window').height > dims.bigScreenHeight;
 
-const HomeScreen = ({ data, handleOpenChatScreen }) => {
+const HomeScreen = ({ data }) => {
   return (
     <View style={styles.container}>
       <ScrollView showsVerticalScrollIndicator={false}>
@@ -17,11 +17,7 @@ const HomeScreen = ({ data, handleOpenChatScreen }) => {
         <Text style={styles.title}> Messages </Text>
         <Animated.View animation="slideInUp" duration={1000}>
           {data.map(user => (
-            <TextChannel
-              key={user.id}
-              user={user}
-              handleOpenChatScreen={handleOpenChatScreen}
-            />
+            <TextChannel key={user.id} user={user} />
           ))}
         </Animated.View>
       </ScrollView>
@@ -52,8 +48,7 @@ const styles = StyleSheet.create({
 });
 
 HomeScreen.propTypes = {
-  data: PropTypes.array.isRequired,
-  handleOpenChatScreen: PropTypes.any.isRequired
+  data: PropTypes.array.isRequired
 };
 
 export default HomeScreen;
