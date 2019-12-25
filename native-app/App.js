@@ -2,13 +2,9 @@ import React, { useState } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { AppLoading } from 'expo';
 import * as Fonts from 'expo-font';
-
-import HomeScreen from './screens/HomeScreen';
-import ChatScreen from './screens/ChatScreen';
-import dummyData from './assets/dummyData';
+import ScreenNavigator from './navigation/ScreenNavigator';
 
 export default function App() {
-  const [data] = useState(dummyData);
   const [isReady, setIsReady] = useState(false);
 
   if (!isReady) {
@@ -30,14 +26,5 @@ export default function App() {
     );
   }
 
-  const context = <HomeScreen data={data} />;
-
-  return <View style={styles.container}>{context}</View>;
+  return <ScreenNavigator />;
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff'
-  }
-});

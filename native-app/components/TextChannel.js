@@ -12,9 +12,9 @@ import dims from '../constants/dims';
 
 const isBigScreen = Dimensions.get('window').height > dims.bigScreenHeight;
 
-const TextChannel = ({ user }) => {
+const TextChannel = ({ user, navigation }) => {
   return (
-    <TouchableOpacity>
+    <TouchableOpacity onPress={() => navigation.navigate('ChatScreen')}>
       <View style={styles.container}>
         <View style={styles.avatarContainer}>
           <Image style={styles.avatar} source={user.avatar} />
@@ -120,7 +120,8 @@ const styles = StyleSheet.create({
 });
 
 TextChannel.propTypes = {
-  user: PropTypes.object.isRequired
+  user: PropTypes.object.isRequired,
+  navigation: PropTypes.object.isRequired
 };
 
 export default TextChannel;

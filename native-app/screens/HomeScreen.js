@@ -6,10 +6,11 @@ import TextChannel from '../components/TextChannel';
 import SearchBar from '../components/SearchBar';
 import NavigationTabs from '../components/NavigationTabs';
 import dims from '../constants/dims';
+import data from '../assets/dummyData';
 
 const isBigScreen = Dimensions.get('window').height > dims.bigScreenHeight;
 
-const HomeScreen = ({ data }) => {
+const HomeScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <ScrollView showsVerticalScrollIndicator={false}>
@@ -17,7 +18,7 @@ const HomeScreen = ({ data }) => {
         <Text style={styles.title}> Messages </Text>
         <Animated.View animation="slideInUp" duration={1000}>
           {data.map(user => (
-            <TextChannel key={user.id} user={user} />
+            <TextChannel navigation={navigation} key={user.id} user={user} />
           ))}
         </Animated.View>
       </ScrollView>
@@ -48,7 +49,7 @@ const styles = StyleSheet.create({
 });
 
 HomeScreen.propTypes = {
-  data: PropTypes.array.isRequired
+  navigation: PropTypes.object.isRequired
 };
 
 export default HomeScreen;

@@ -2,11 +2,11 @@ import React from 'react';
 import { Text, View, StyleSheet, Button } from 'react-native';
 import PropTypes from 'prop-types';
 
-const ChatScreen = () => {
+const ChatScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Text> This is chat view version pre-alpha </Text>
-      <Button title="Back to home screen" />
+      <Button title="Back to home screen" onPress={() => navigation.goBack()} />
     </View>
   );
 };
@@ -20,6 +20,8 @@ const styles = StyleSheet.create({
   }
 });
 
-ChatScreen.propTypes = {};
+ChatScreen.propTypes = {
+  navigation: PropTypes.object.isRequired
+};
 
 export default ChatScreen;
