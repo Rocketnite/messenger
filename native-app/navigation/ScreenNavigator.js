@@ -9,7 +9,7 @@ import colors from '../constants/colors';
 
 const SearchButton = () => (
   <TouchableOpacity
-    style={{ marginRight: 10 }}
+    style={{ marginRight: 15 }}
     onPress={() =>
       Alert.alert('Holy moly', "It's the search button", [
         { text: 'Cool', style: 'cancel' }
@@ -32,10 +32,10 @@ const ScreenNavigator = createStackNavigator({
       },
       headerTintColor: colors.primary,
       headerRight: <SearchButton />
-    },
-    ChatScreen: {
-      screen: ChatScreen
     }
+  },
+  ChatScreen: {
+    screen: ChatScreen
   }
 });
 
