@@ -18,10 +18,10 @@ const dummyData = [
   },
   {
     id: 3,
-    name: 'Henio',
+    name: 'ZbigniewWodeckiPrawdziwyWirtuozŚpiewu',
     isOnline: false,
-    lastMessage: 'Proszę pomóż mi',
-    avatar: require('../assets/henio.jpeg'),
+    lastMessage: 'Lubie wracać tam gdzie byłem już',
+    avatar: require('../assets/wodecki.jpg'),
     whenLastMessage: '1 hour'
   },
   {
