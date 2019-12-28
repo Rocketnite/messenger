@@ -34,6 +34,7 @@ ChatScreen.navigationOptions = navigationData => {
       fontWeight: '200',
       fontSize: 22
     },
+    headerBackTitle: '',
     headerTintColor: colors.primary,
     headerRight: (
       <HeaderButtons HeaderButtonComponent={HeaderButton}>
