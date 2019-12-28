@@ -23,10 +23,12 @@ const TextChannel = ({ user, navigation }) => {
           {user.isOnline && <Text style={styles.statusIndicator} />}
         </View>
         <View style={styles.description}>
-          <View style={styles.nameContainer}>
-            <Text numberOfLines={1} style={styles.name}>
-              {user.name}
-            </Text>
+          <View style={styles.upperContainer}>
+            <View style={styles.nameContainer}>
+              <Text numberOfLines={1} style={styles.name}>
+                {user.name}
+              </Text>
+            </View>
             <View style={styles.whenLastMessageContainer}>
               <Text style={styles.whenLastMessage}>{user.whenLastMessage}</Text>
             </View>
@@ -54,12 +56,15 @@ const styles = StyleSheet.create({
     width: '80%',
     marginLeft: isBigScreen ? 20 : 10
   },
-
-  nameContainer: {
+  upperContainer: {
     flexDirection: 'row',
     alignItems: 'center',
     marginBottom: 5,
     width: '100%'
+  },
+
+  nameContainer: {
+    width: '80%'
   },
 
   lastMessageContainer: {

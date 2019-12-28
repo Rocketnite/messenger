@@ -24,10 +24,11 @@ const styles = StyleSheet.create({
 
 ChatScreen.navigationOptions = navigationData => {
   const { name } = navigationData.navigation.getParam('user');
-  const firstName = name.split(' ')[0];
+  let firstName = name.split(' ')[0];
+  if (firstName.length > 12) firstName = `${firstName.slice(0, 9)}...`;
 
   return {
-    headerTitle: name.length > 11 ? firstName : name,
+    headerTitle: name.length > 12 ? firstName : name,
     headerTitleStyle: {
       fontFamily: 'rubik-bold',
       fontWeight: '200',
