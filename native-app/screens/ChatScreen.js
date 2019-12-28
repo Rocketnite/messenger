@@ -44,13 +44,8 @@ ChatScreen.navigationOptions = navigationData => {
           onPress={() => console.log('Call button')}
         />
         <Item
-          title="Calendar"
-          iconName="calendar"
-          onPress={() => console.log('Events button')}
-        />
-        <Item
-          title="Profile"
-          iconName="user"
+          title="Info"
+          iconName="info"
           onPress={() => console.log('Profile button')}
         />
       </HeaderButtons>
