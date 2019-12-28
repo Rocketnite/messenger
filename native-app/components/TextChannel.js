@@ -20,7 +20,7 @@ const TextChannel = ({ user, navigation }) => {
       <View style={styles.container}>
         <View style={styles.avatarContainer}>
           <Image style={styles.avatar} source={user.avatar} />
-          <Text style={styles.statusIndicator} />
+          {user.isOnline && <Text style={styles.statusIndicator} />}
         </View>
         <View style={styles.description}>
           <View style={styles.nameContainer}>
