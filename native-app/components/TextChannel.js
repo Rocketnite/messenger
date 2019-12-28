@@ -13,7 +13,6 @@ import dims from '../constants/dims';
 const isBigScreen = Dimensions.get('window').height > dims.bigScreenHeight;
 
 const TextChannel = ({ user, navigation }) => {
-  console.log(user);
   return (
     <TouchableOpacity
       onPress={() => navigation.navigate('ChatScreen', { user })}
