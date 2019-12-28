@@ -32,7 +32,7 @@ ChatScreen.navigationOptions = navigationData => {
     headerTitleStyle: {
       fontFamily: 'rubik-bold',
       fontWeight: '200',
-      fontSize: 24
+      fontSize: 22
     },
     headerTintColor: colors.primary,
     headerRight: (
