@@ -1,24 +1,12 @@
 import React from 'react';
 import { createAppContainer } from 'react-navigation';
-import { TouchableOpacity, Alert } from 'react-native';
+import { Alert } from 'react-native';
 import { createStackNavigator } from 'react-navigation-stack';
-import { Feather } from '@expo/vector-icons';
+import { HeaderButtons, Item } from 'react-navigation-header-buttons';
+import HeaderButton from '../components/HeaderButtonFeather';
 import HomeScreen from '../screens/HomeScreen';
 import ChatScreen from '../screens/ChatScreen';
 import colors from '../constants/colors';
-
-const SearchButton = () => (
-  <TouchableOpacity
-    style={{ marginRight: 15 }}
-    onPress={() =>
-      Alert.alert('Holy moly', "It's the search button", [
-        { text: 'Cool', style: 'cancel' }
-      ])
-    }
-  >
-    <Feather name="search" size={22} />
-  </TouchableOpacity>
-);
 
 const ScreenNavigator = createStackNavigator({
   HomeScreen: {
@@ -31,7 +19,19 @@ const ScreenNavigator = createStackNavigator({
         fontSize: 24
       },
       headerTintColor: colors.primary,
-      headerRight: <SearchButton />
+      headerRight: (
+        <HeaderButtons HeaderButtonComponent={HeaderButton}>
+          <Item
+            title="Search"
+            iconName="search"
+            onPress={() =>
+              Alert.alert('Holy moly', "It's the search button", [
+                { text: 'Cool', style: 'destructive' }
+              ])
+            }
+          />
+        </HeaderButtons>
+      )
     }
   },
   ChatScreen: {
