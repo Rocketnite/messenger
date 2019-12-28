@@ -1,11 +1,11 @@
 import React from 'react';
-import { Text, View, StyleSheet, Button } from 'react-native';
+import { View, StyleSheet, Button } from 'react-native';
 import PropTypes from 'prop-types';
+import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import colors from '../constants/colors';
+import HeaderButton from '../components/HeaderButtonFeather';
 
 const ChatScreen = ({ navigation }) => {
-  const user = navigation.getParam('user');
-
   return (
     <View style={styles.container}>
       <Button title="Back to home screen" onPress={() => navigation.goBack()} />
@@ -32,7 +32,26 @@ ChatScreen.navigationOptions = navigationData => {
       fontWeight: '200',
       fontSize: 24
     },
-    headerTintColor: colors.primary
+    headerTintColor: colors.primary,
+    headerRight: (
+      <HeaderButtons HeaderButtonComponent={HeaderButton}>
+        <Item
+          title="Call"
+          iconName="phone"
+          onPress={() => console.log('Call button')}
+        />
+        <Item
+          title="Calendar"
+          iconName="calendar"
+          onPress={() => console.log('Events button')}
+        />
+        <Item
+          title="Profile"
+          iconName="user"
+          onPress={() => console.log('Profile button')}
+        />
+      </HeaderButtons>
+    )
   };
 };
 
