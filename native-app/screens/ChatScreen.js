@@ -49,11 +49,6 @@ ChatScreen.navigationOptions = navigationData => {
     headerRight: (
       <HeaderButtons HeaderButtonComponent={HeaderButton}>
         <Item
-          title="Call"
-          iconName="phone"
-          onPress={() => console.log('Call button')}
-        />
-        <Item
           title="Info"
           iconName="info"
           onPress={() => navigationData.navigation.navigate('InfoScreen')}
