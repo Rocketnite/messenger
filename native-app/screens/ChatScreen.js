@@ -28,7 +28,7 @@ ChatScreen.navigationOptions = navigationData => {
   if (firstName.length > 12) firstName = `${firstName.slice(0, 9)}...`;
 
   return {
-    headerTitle: name.length > 12 ? firstName : name,
+    headerTitle: firstName,
     headerTitleStyle: {
       fontFamily: 'rubik-bold',
       fontWeight: '200',

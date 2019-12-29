@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { AppLoading } from 'expo';
 import * as Fonts from 'expo-font';
 import { useScreens } from 'react-native-screens';
-import ScreenNavigator from './navigation/ScreenNavigator';
+import ScreenStackNavigator from './navigation/ScreenNavigator';
 
 useScreens();
 
@@ -28,5 +28,5 @@ export default function App() {
     );
   }
 
-  return <ScreenNavigator />;
+  return <ScreenStackNavigator />;
 }
