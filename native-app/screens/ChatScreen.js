@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import colors from '../constants/colors';
 import HeaderButton from '../components/HeaderButtonFeather';
+import CustomHeaderTitle from '../components/CustomHeaderTitle';
 
 const ChatScreen = ({ navigation }) => {
   return (
@@ -23,12 +24,18 @@ const styles = StyleSheet.create({
 });
 
 ChatScreen.navigationOptions = navigationData => {
-  const { name } = navigationData.navigation.getParam('user');
+  const { name, avatar, isOnline } = navigationData.navigation.getParam('user');
   let firstName = name.split(' ')[0];
   if (firstName.length > 12) firstName = `${firstName.slice(0, 9)}...`;
 
   return {
-    headerTitle: firstName,
+    headerTitle: (
+      <CustomHeaderTitle
+        firstName={firstName}
+        avatar={avatar}
+        isOnline={isOnline}
+      />
+    ),
     headerTitleStyle: {
       fontFamily: 'rubik-bold',
       fontWeight: '200',
