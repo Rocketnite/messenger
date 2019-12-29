@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet, Button } from 'react-native';
+import { View, StyleSheet, Button, Platform } from 'react-native';
 import PropTypes from 'prop-types';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import colors from '../constants/colors';
@@ -29,13 +29,16 @@ ChatScreen.navigationOptions = navigationData => {
   if (firstName.length > 12) firstName = `${firstName.slice(0, 9)}...`;
 
   return {
-    headerTitle: (
-      <CustomHeaderTitle
-        firstName={firstName}
-        avatar={avatar}
-        isOnline={isOnline}
-      />
-    ),
+    headerTitle:
+      Platform.OS === 'android' ? (
+        <CustomHeaderTitle
+          firstName={firstName}
+          avatar={avatar}
+          isOnline={isOnline}
+        />
+      ) : (
+        { firstName }
+      ),
     headerTitleStyle: {
       fontFamily: 'rubik-bold',
       fontWeight: '200',
