@@ -1,15 +1,14 @@
 import React from 'react';
-import { View, StyleSheet, Button, Platform } from 'react-native';
-import PropTypes from 'prop-types';
+import { View, StyleSheet, Platform, Text } from 'react-native';
 import { HeaderButtons, Item } from 'react-navigation-header-buttons';
 import colors from '../constants/colors';
 import HeaderButton from '../components/HeaderButtonFeather';
 import CustomHeaderTitle from '../components/CustomHeaderTitle';
 
-const ChatScreen = ({ navigation }) => {
+const ChatScreen = () => {
   return (
     <View style={styles.container}>
-      <Button title="Back to home screen" onPress={() => navigation.goBack()} />
+      <Text> This is chat screen </Text>
     </View>
   );
 };
@@ -35,6 +34,7 @@ ChatScreen.navigationOptions = navigationData => {
           firstName={firstName}
           avatar={avatar}
           isOnline={isOnline}
+          onPress={() => navigationData.navigation.navigate('InfoScreen')}
         />
       ) : (
         { firstName }
@@ -56,15 +56,11 @@ ChatScreen.navigationOptions = navigationData => {
         <Item
           title="Info"
           iconName="info"
-          onPress={() => console.log('Profile button')}
+          onPress={() => navigationData.navigation.navigate('InfoScreen')}
         />
       </HeaderButtons>
     )
   };
-};
-
-ChatScreen.propTypes = {
-  navigation: PropTypes.object.isRequired
 };
 
 export default ChatScreen;

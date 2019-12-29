@@ -1,11 +1,11 @@
-// TODO Create contacts screen
+// TODO Create info screen
 import React from 'react';
 import { View, StyleSheet, Text } from 'react-native';
 
-const ContactsScreen = () => {
+const InfoScreen = () => {
   return (
     <View style={styles.container}>
-      <Text> This is contacts screen </Text>
+      <Text> This is info screen </Text>
     </View>
   );
 };
@@ -19,4 +19,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default ContactsScreen;
+export default InfoScreen;

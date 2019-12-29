@@ -6,11 +6,14 @@ import { Feather } from '@expo/vector-icons';
 import HomeScreen from '../screens/HomeScreen';
 import ChatScreen from '../screens/ChatScreen';
 import ContactsScreen from '../screens/ContactsScreen';
+import InfoScreen from '../screens/InfoScreen';
+import SettingsScreen from '../screens/SettingsScreen';
 import colors from '../constants/colors';
 
 const ScreenStackNavigator = createStackNavigator({
   HomeScreen,
-  ChatScreen
+  ChatScreen,
+  InfoScreen
 });
 
 ScreenStackNavigator.navigationOptions = ({ navigation }) => {
@@ -36,6 +39,14 @@ const ScreenTabNavigator = createBottomTabNavigator(
       navigationOptions: {
         tabBarIcon: tabInfo => (
           <Feather name="users" size={25} color={tabInfo.tintColor} />
+        )
+      }
+    },
+    Settings: {
+      screen: SettingsScreen,
+      navigationOptions: {
+        tabBarIcon: tabInfo => (
+          <Feather name="settings" size={25} color={tabInfo.tintColor} />
         )
       }
     }

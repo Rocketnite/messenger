@@ -38,7 +38,7 @@ CustomHeaderTitle.propTypes = {
 };
 
 CustomHeaderTitle.defaultProps = {
-  onPress: () => console.log('you didnt pass onPress man')
+  onPress: () => console.log('CustomHeaderTitle has no onPress prop')
 };
 
 export default CustomHeaderTitle;
