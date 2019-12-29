@@ -4,11 +4,11 @@ import {
   StyleSheet,
   TouchableOpacity,
   Text,
-  Image,
   Dimensions
 } from 'react-native';
 import PropTypes from 'prop-types';
 import dims from '../constants/dims';
+import Avatar from './Avatar';
 
 const isBigScreen = Dimensions.get('window').height > dims.bigScreenHeight;
 
@@ -18,10 +18,7 @@ const TextChannel = ({ user, navigation }) => {
       onPress={() => navigation.navigate('ChatScreen', { user })}
     >
       <View style={styles.container}>
-        <View style={styles.avatarContainer}>
-          <Image style={styles.avatar} source={user.avatar} />
-          {user.isOnline && <Text style={styles.statusIndicator} />}
-        </View>
+        <Avatar image={user.avatar} isOnline={user.isOnline} />
         <View style={styles.description}>
           <View style={styles.upperContainer}>
             <View style={styles.nameContainer}>
@@ -69,32 +66,6 @@ const styles = StyleSheet.create({
 
   lastMessageContainer: {
     alignItems: 'flex-start'
-  },
-
-  avatar: {
-    width: isBigScreen ? 100 : 50,
-    height: isBigScreen ? 100 : 50,
-    borderRadius: (isBigScreen ? 100 : 50) / 2
-  },
-
-  avatarContainer: {
-    width: isBigScreen ? 100 : 50,
-    height: isBigScreen ? 100 : 50,
-    marginRight: 5,
-    position: 'relative'
-  },
-
-  statusIndicator: {
-    width: isBigScreen ? 30 : 15,
-    height: isBigScreen ? 30 : 15,
-    bottom: 0,
-    right: 0,
-    position: 'absolute',
-    backgroundColor: '#2ecc71',
-    borderRadius: (isBigScreen ? 30 : 15) / 2,
-    borderWidth: 3,
-    borderColor: '#ffffff',
-    overflow: 'hidden'
   },
 
   name: {
