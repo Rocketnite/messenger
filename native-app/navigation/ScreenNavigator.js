@@ -10,13 +10,13 @@ import InfoScreen from '../screens/InfoScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 import colors from '../constants/colors';
 
-const ScreenStackNavigator = createStackNavigator({
+const ChatStackNavigator = createStackNavigator({
   HomeScreen,
   ChatScreen,
   InfoScreen
 });
 
-ScreenStackNavigator.navigationOptions = ({ navigation }) => {
+ChatStackNavigator.navigationOptions = ({ navigation }) => {
   let tabBarVisible = true;
   if (navigation.state.index > 0) {
     tabBarVisible = false;
@@ -24,10 +24,18 @@ ScreenStackNavigator.navigationOptions = ({ navigation }) => {
   return { tabBarVisible };
 };
 
+const ContactsStackNavigator = createStackNavigator({
+  ContactsScreen
+});
+
+const SettingsStackNavigator = createStackNavigator({
+  SettingsScreen
+});
+
 const ScreenTabNavigator = createBottomTabNavigator(
   {
     Messages: {
-      screen: ScreenStackNavigator,
+      screen: ChatStackNavigator,
       navigationOptions: {
         tabBarIcon: tabInfo => (
           <Feather name="message-square" size={25} color={tabInfo.tintColor} />
@@ -35,7 +43,7 @@ const ScreenTabNavigator = createBottomTabNavigator(
       }
     },
     Contacts: {
-      screen: ContactsScreen,
+      screen: ContactsStackNavigator,
       navigationOptions: {
         tabBarIcon: tabInfo => (
           <Feather name="users" size={25} color={tabInfo.tintColor} />
@@ -43,7 +51,7 @@ const ScreenTabNavigator = createBottomTabNavigator(
       }
     },
     Settings: {
-      screen: SettingsScreen,
+      screen: SettingsStackNavigator,
       navigationOptions: {
         tabBarIcon: tabInfo => (
           <Feather name="settings" size={25} color={tabInfo.tintColor} />
